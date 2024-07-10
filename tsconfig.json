@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "lib": ["es2022"],
     "moduleDetection": "force",
+    "rootDir": "./src",
     "outDir": "./build",
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -14,8 +15,11 @@
     "allowJs": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "eslint.config.js", "tests/**/*"]
+
 }
