@@ -1,36 +1,13 @@
-// {
-//   "compilerOptions": {
-//     "target": "es2022",
-//     "jsx": "react-jsx",
-//     "lib": ["es2022"],
-//     "moduleDetection": "force",
-//     "rootDir": "./src",
-//     "outDir": "./build",
-//     "module": "ESNext",
-//     "moduleResolution": "Bundler",
-//     "paths": {
-//       "@/*": ["./src/*"]
-//     },
-//     "resolveJsonModule": true,
-//     "allowJs": true,
-//     "strict": true,
-//     "noUncheckedIndexedAccess": true,
-//     "noEmit": false,
-//     "esModuleInterop": true,
-//     "skipLibCheck": true
-//   },
-//   "include": ["src/**/*"],
-//   "exclude": ["node_modules", "eslint.config.js", "tests/**/*"]
-// }
 {
   "compilerOptions": {
     "target": "es2022",
     "jsx": "react-jsx",
     "lib": ["es2022"],
     "moduleDetection": "force",
+    "rootDir": "./src",
+    "outDir": "./build",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "outDir": "./build",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -38,9 +15,10 @@
     "allowJs": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
-    "verbatimModuleSyntax": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "eslint.config.js", "tests/**/*"]
 }
