@@ -1,24 +1,38 @@
-import { Invoice, InvoiceResponse, Transaction, TransactionResponse } from '@/schema/transaction';
-import { MongoClient, MongoClientOptions, Db, Collection, Document } from 'mongodb';
+import {
+  Invoice,
+  InvoiceResponse,
+  Transaction,
+  TransactionResponse,
+} from "@/schema/transaction";
+import {
+  MongoClient,
+  MongoClientOptions,
+  Db,
+  Collection,
+  Document,
+} from "mongodb";
 
-const dbName = 'Payments';
+const dbName = "Payments";
 
-const uri = process.env.DB_URL || '';
+const uri = process.env.DB_URL || "";
 
 async function connectMongo(): Promise<MongoClient> {
-  const clientOptions: MongoClientOptions = {
-  };
+  const clientOptions: MongoClientOptions = {};
 
   const client = new MongoClient(uri, clientOptions);
   await client.connect();
-  console.log('Connected to MongoDB');
+  console.log("Connected to MongoDB");
   return client;
 }
 
-export async function handleGetTransactions(page: number, limit: number, search?: string): Promise<TransactionResponse> {
+export async function handleGetTransactions(
+  page: number,
+  limit: number,
+  search?: string,
+): Promise<TransactionResponse> {
   let client: MongoClient | undefined;
 
-  const collectionName = 'transactions';
+  const collectionName = "transactions";
   try {
     client = await connectMongo();
 
@@ -27,23 +41,24 @@ export async function handleGetTransactions(page: number, limit: number, search?
 
     const skip: number = (page - 1) * limit;
     const query: Document = {};
-    
+
     if (search) {
       query.$or = [
-        { username: { $regex: search, $options: 'i' } },
-        { transactionId: { $regex: search, $options: 'i' } },
-        { userId: { $regex: search, $options: 'i' } },
-        { paymentMethod: { $regex: search, $options: 'i' } },
-        { status: { $regex: search, $options: 'i' } },
+        { username: { $regex: search, $options: "i" } },
+        { transactionId: { $regex: search, $options: "i" } },
+        { userId: { $regex: search, $options: "i" } },
+        { paymentMethod: { $regex: search, $options: "i" } },
+        { status: { $regex: search, $options: "i" } },
       ];
     }
 
-    const documents: Document[] = await collection.find(query)
+    const documents: Document[] = await collection
+      .find(query)
       .skip(skip)
       .limit(limit)
       .toArray();
 
-      const totalDocuments: number = await collection.countDocuments();
+    const totalDocuments: number = await collection.countDocuments();
 
     const transactions: Transaction[] = documents.map((doc: Document) => ({
       _id: doc._id.toString(),
@@ -55,21 +70,25 @@ export async function handleGetTransactions(page: number, limit: number, search?
       payment: doc.paymentMethod,
     }));
 
-    return { records: transactions, total: totalDocuments }; 
+    return { records: transactions, total: totalDocuments };
   } catch (err) {
-    console.error('Error retrieving transactions:', err);
+    console.error("Error retrieving transactions:", err);
     throw err;
   } finally {
     if (client) {
       await client.close();
-      console.log('MongoDB connection closed');
+      console.log("MongoDB connection closed");
     }
   }
-};
+}
 
-export async function handleGetInvoices(page: number, limit: number, search?: string): Promise<InvoiceResponse> {
+export async function handleGetInvoices(
+  page: number,
+  limit: number,
+  search?: string,
+): Promise<InvoiceResponse> {
   let client: MongoClient | undefined;
-  const collectionName = 'invoices';
+  const collectionName = "invoices";
 
   try {
     client = await connectMongo();
@@ -82,17 +101,17 @@ export async function handleGetInvoices(page: number, limit: number, search?: st
 
     if (search) {
       query.$or = [
-        { customerEmail: { $regex: search, $options: 'i' } },
-        { customerName: { $regex: search, $options: 'i' } },
-        { customerPhone: { $regex: search, $options: 'i' } },
-        { currency: { $regex: search, $options: 'i' } },
-        { status: { $regex: search, $options: 'i' } },
-        { dueDate: { $regex: search, $options: 'i' } },
-
+        { customerEmail: { $regex: search, $options: "i" } },
+        { customerName: { $regex: search, $options: "i" } },
+        { customerPhone: { $regex: search, $options: "i" } },
+        { currency: { $regex: search, $options: "i" } },
+        { status: { $regex: search, $options: "i" } },
+        { dueDate: { $regex: search, $options: "i" } },
       ];
     }
 
-    const documents: Document[] = await collection.find(query)
+    const documents: Document[] = await collection
+      .find(query)
       .skip(skip)
       .limit(limit)
       .toArray();
@@ -110,14 +129,14 @@ export async function handleGetInvoices(page: number, limit: number, search?: st
       invoice_id: doc.invoiceId,
     }));
 
-    return { total: totalDocuments, records: invoices }
+    return { total: totalDocuments, records: invoices };
   } catch (err) {
-    console.error('Error retrieving transactions:', err);
+    console.error("Error retrieving transactions:", err);
     throw err;
   } finally {
     if (client) {
       await client.close();
-      console.log('MongoDB connection closed');
+      console.log("MongoDB connection closed");
     }
   }
 }

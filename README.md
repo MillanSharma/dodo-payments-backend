@@ -42,11 +42,10 @@ This project is a simple API for managing contacts, built using Node.js, TypeScr
 
 ## Test
 
-
 1. Run the test:
 
    ```sh
-   pnpm run test 
+   pnpm run test
    ```
 
 ## Exposed Routes

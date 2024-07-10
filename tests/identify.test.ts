@@ -1,4 +1,3 @@
-import type { Contact, ResponseBody } from "@/schema/schema";
 import app from "@/server";
 import request from "supertest";
 

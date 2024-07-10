@@ -13,7 +13,8 @@ const configSchema = z.object({
     .string()
     .url()
     .refine(
-      (url) => url.startsWith("mongodb+srv://") || url.startsWith("mongodb+srv://"),
+      (url) =>
+        url.startsWith("mongodb+srv://") || url.startsWith("mongodb+srv://"),
       "DB_URL must be a valid mongo url",
     ),
 });

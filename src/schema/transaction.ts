@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb'; // Assuming ObjectId might be used for _id fields
+import { ObjectId } from "mongodb"; // Assuming ObjectId might be used for _id fields
 
 interface Item {
   itemId: ObjectId;
@@ -16,13 +16,13 @@ interface Address {
 }
 
 interface Transaction {
-  _id: string,
-  transaction_id: string,
-  user_name: string,
-  amount: string,
-  currency: string,
-  status: string,
-  payment: string,
+  _id: string;
+  transaction_id: string;
+  user_name: string;
+  amount: string;
+  currency: string;
+  status: string;
+  payment: string;
 }
 
 interface Invoice {
@@ -36,20 +36,20 @@ interface Invoice {
 }
 
 interface TransactionResponse {
-  records: Transaction[],
-  total: number,
+  records: Transaction[];
+  total: number;
 }
 
 interface InvoiceResponse {
-  records: Invoice[],
-  total: number,
+  records: Invoice[];
+  total: number;
 }
 
-export { 
-  Transaction, 
-  Item, 
-  Address, 
-  Invoice, 
-  TransactionResponse, 
-  InvoiceResponse 
+export {
+  Transaction,
+  Item,
+  Address,
+  Invoice,
+  TransactionResponse,
+  InvoiceResponse,
 };

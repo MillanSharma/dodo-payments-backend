@@ -4,6 +4,7 @@
     "jsx": "react-jsx",
     "lib": ["es2022"],
     "moduleDetection": "force",
+    "outDir": "./build",
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "paths": {
