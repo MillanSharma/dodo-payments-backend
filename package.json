@@ -5,15 +5,13 @@
     "node": ">=20.11.0"
   },
   "scripts": {
+    "build": "esbuild src/server.ts --bundle --outfile=build/server.js --platform=node --format=esm --packages=external",
     "start": "node build/server.js",
     "dev": "tsx watch src/server.ts",
-    "clean": "rm -rf build/ && pnpm install",
     "generate": "drizzle-kit generate:pg",
     "migrate": "tsx src/migrate.ts",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "jest",
-    "build": "tsc"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "cors": "^2.8.5",
