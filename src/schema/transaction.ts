@@ -45,7 +45,7 @@ interface InvoiceResponse {
   total: number;
 }
 
-export {
+export type {
   Transaction,
   Item,
   Address,

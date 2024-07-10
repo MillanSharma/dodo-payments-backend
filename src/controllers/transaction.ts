@@ -1,4 +1,4 @@
-import {
+import type {
   Invoice,
   InvoiceResponse,
   Transaction,
@@ -6,10 +6,10 @@ import {
 } from "@/schema/transaction";
 import {
   MongoClient,
-  MongoClientOptions,
+  type MongoClientOptions,
   Db,
   Collection,
-  Document,
+  type Document,
 } from "mongodb";
 
 const dbName = "Payments";

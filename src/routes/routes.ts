@@ -1,6 +1,6 @@
 import type { Router, Request, Response } from "express";
 import { createRouter } from "@/utils/create";
-import { InvoiceResponse, TransactionResponse } from "@/schema/transaction";
+import { type InvoiceResponse, type TransactionResponse } from "@/schema/transaction";
 import {
   handleGetInvoices,
   handleGetTransactions,
