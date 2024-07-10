@@ -1,4 +1,4 @@
-import type { Env } from "@/utils/env";
+import type { Env } from "../dodo-payments-backend/src/utils/env";
 
 declare global {
   namespace NodeJS {
