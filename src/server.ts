@@ -5,7 +5,6 @@ import "./utils/env";
 import routes from "./routes/routes";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
-import swaggerOptions from "../swaggerConfig";
 
 const { PORT } = process.env;
 
@@ -15,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 // swagger setup
-const swaggerSpecs = swaggerJSDoc(swaggerOptions);
+const swaggerSpecs = swaggerJSDoc();
 // swagger ui route
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
