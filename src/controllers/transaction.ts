@@ -127,6 +127,7 @@ export async function handleGetInvoices(
       due_date: doc.dueDate,
       amount: doc.amount,
       invoice_id: doc.invoiceId,
+      status: doc.status,
     }));
 
     return { total: totalDocuments, records: invoices };
