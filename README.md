@@ -1,6 +1,6 @@
 # Dodo Payment Dashboard Backend API
 
-This project is a simple API for managing contacts, built using Node.js, TypeScript, Express, PostgreSQL, Drizzle ORM, and Zod for validation.
+This project is a simple API for fetching transactions and invoices, built using Node.js, TypeScript, Express, MongoDB, and Zod for validation.
 
 ## Technologies Used
 
@@ -9,8 +9,6 @@ This project is a simple API for managing contacts, built using Node.js, TypeScr
 - **Express**: A minimal and flexible Node.js web application framework.
 - **MongodDB**: A powerful, open-source document based database system.
 - **Zod**: A TypeScript-first schema declaration and validation library.
-- **SwaggerDocs**: A interactive API documentation
-- **Zest**: A Javascript testing framework.
 
 ## Installation
 
@@ -40,14 +38,6 @@ This project is a simple API for managing contacts, built using Node.js, TypeScr
    pnpm dev
    ```
 
-## Test
-
-1. Run the test:
-
-   ```sh
-   pnpm run test
-   ```
-
 ## Exposed Routes
 
 ### GET /status
@@ -59,11 +49,9 @@ Returns the status of the API.
 ```httpf
 GET /status
 
-
-GET /identify
-request: { email: string, phoneNumber: string }
 ```
 
-#### route exposed on: https://dodo-payments-backend-wwxo.onrender.com/status
+#### route exposed on: https://dodo-payments-backend.onrender.com/status
 
-#### docs exposed on: https://dodo-payments-backend-wwxo.onrender.com/docs
+
+
