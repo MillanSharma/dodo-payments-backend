@@ -4,6 +4,7 @@ import type {
   Transaction,
   TransactionResponse,
 } from "@/schema/transaction";
+import dotenv from 'dotenv';
 import {
   MongoClient,
   type MongoClientOptions,
@@ -11,6 +12,8 @@ import {
   Collection,
   type Document,
 } from "mongodb";
+
+dotenv.config();
 
 const dbName = "Payments";
 

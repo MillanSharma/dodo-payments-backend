@@ -1,4 +1,6 @@
 import type { Options } from "swagger-jsdoc";
+import dotenv from 'dotenv'
+dotenv.config();
 
 const swaggerOptions: Options = {
   swaggerDefinition: {
@@ -6,7 +8,7 @@ const swaggerOptions: Options = {
     info: {
       title: "My API",
       version: "1.0.0",
-      description: "API documentation for my bite-speed-backend",
+      description: "API documentation for dodo payments backend",
     },
     servers: [
       {

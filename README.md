@@ -52,6 +52,7 @@ GET /status
 ```
 
 #### route exposed on: https://dodo-payments-backend.onrender.com/status
+#### docs route exposed on: https://dodo-payments-backend.onrender.com/docs
 
 
 
