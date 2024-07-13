@@ -17,7 +17,7 @@ app.use(cors());
 
 //swagger setup
 const swaggerSpecs = swaggerJSDoc(swaggerOptions);
-app.use("/dodo-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 app.use("/", routes);
 
